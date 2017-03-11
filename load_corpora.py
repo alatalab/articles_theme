@@ -286,9 +286,9 @@ class LabeledRawSentence(object):
 
   def __iter__(self):
     for index,row in self.df.iterrows():
-      words = getWords(row['Abstract'])
+      words = getWords(row['Abstract']+" "+row['Author Keywords']+row['Index Keywords'])
       if words:
-        yield gensim.models.doc2vec.TaggedDocument(words, [row['EID']])
+        yield gensim.models.doc2vec.TaggedDocument(words, [row['Title']])
 
 
 def load_model(source=None, file=None):
