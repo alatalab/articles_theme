@@ -125,10 +125,10 @@ def main(stopwords):
 
 def vectorizeAbstract(a, model):
 
-  # print(a)
+  # print(model.docvecs)
+  # print()
 
-
-  return model.docvecs[a['EID']]
+  return model.docvecs[a['Title']]
 
   words = getWords(a)
 
@@ -286,7 +286,7 @@ class LabeledRawSentence(object):
 
   def __iter__(self):
     for index,row in self.df.iterrows():
-      words = getWords(row['Abstract']+" "+row['Author Keywords']+row['Index Keywords'])
+      words = getWords(row['Abstract']+str(row['Author Keywords'])+str(row['Index Keywords']))
       if words:
         yield gensim.models.doc2vec.TaggedDocument(words, [row['Title']])
 
@@ -326,6 +326,6 @@ def load_model(source=None, file=None):
   return model
 
 
-# main(stopwords)
+main(stopwords)
 
 
