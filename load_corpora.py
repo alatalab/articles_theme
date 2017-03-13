@@ -52,11 +52,11 @@ def main(stopwords):
   # print("check for input...")
   stopwords += generateStopBigrams()
 
-  data = parseData()
+  data = parseData(file="data/world_history_key.csv")
 
   model = load_model(source=data)
 
-  model.save('doc2vec.bin')
+  model.save('world_history_doc2vec.bin')
 
   # print(model['снег_NOUN'])
 
