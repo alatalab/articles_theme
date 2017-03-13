@@ -1,8 +1,10 @@
 
 import time, re
 
+import nltk
 import gensim
 from gensim.models import Word2Vec, Doc2Vec
+from gensim.models.keyedvectors import KeyedVectors
 import pandas as pd
 import numpy as np
 
@@ -51,12 +53,15 @@ def main(stopwords):
 
   # print("check for input...")
   stopwords += generateStopBigrams()
+  stopwords += nltk.corpus.stopwords.words('english')
 
-  data = parseData(file="data/world_history_key.csv")
+  data = parseData("data/world_history_key.csv")
+
+  # model = None
 
   model = load_model(source=data)
 
-  model.save('world_history_doc2vec.bin')
+  model.save('world_history_2vec.bin')
 
   # print(model['снег_NOUN'])
 
@@ -82,7 +87,7 @@ def main(stopwords):
 
     # print(article)
 
-  text = data['Abstract'].str.cat(sep=" ")
+  # text = data['Abstract'].str.cat(sep=" ")
 
   # print(len(text))
 
@@ -114,33 +119,33 @@ def main(stopwords):
     obs.append(vectorizeAbstract(a, model))
 
 
+
   kmeans = KMeans().fit(np.array(obs)) #k_or_guess
 
   # print(kmeans.cluster_centers_)
 
 
   for c in kmeans.cluster_centers_:
-    topic = model.similar_by_vector(c, topn=3)
-    print(topic)
+    topic = model.similar_by_vector(c, topn=5)
+    print("-----")
+    for title in topic:
+      # print(title[0])
+      print(title[0][:140])
 
 def vectorizeAbstract(a, model):
 
-  # print(model.docvecs)
-  # print()
-
   return model.docvecs[a['Title']]
 
-  words = getWords(a)
+  # words = getWords(a)
 
-  vectors = []
+  # vectors = []
 
-  for w in words:
-    if w in model.vocab:
-      # print(model[w])
-      vectors.append(model[w])
+  # for w in words:
+  #   if w.lower() in model.vocab:
+  #     # print(model[w])
+  #     vectors.append(model[w.lower()])
 
-  return sum(vectors)/len(vectors)
-
+  # return sum(vectors)/len(vectors)
 
 
 def generateStopBigrams():
@@ -190,7 +195,8 @@ def collectFrequency(words):
 
 
 def getWords(s):
-  words = re.compile("[\s\.\,\(\)]\%").split(s)
+  words = re.compile("[:\\\"\s\.\,\(\)\%';\[\]]").split(s)
+  # print(len(words))
   return list(filter(lambda a: a not in stopwords, words))
 
 import json
@@ -250,7 +256,7 @@ def parseTesaurus(file="desc2017.xml"):
 
 
 
-def parseData(file="data/articles.csv"):
+def parseData(file):
 
   articles = pd.read_csv(file)
 
@@ -299,10 +305,6 @@ def load_model(source=None, file=None):
   # MODEL_PATH = 'models/en_1000_no_stem/en.model'
   MODEL_PATH = 'models/GoogleNews-vectors-negative300.bin'
 
-  # downloaded from http://ling.go.mail.ru/ru/about
-  # MODEL_PATH = 'models/ruscorpora_1_300_10.bin'
-  # MODEL_PATH = 'models/ruwikiruscorpora_0_300_20.bin'
-  # MODEL_PATH = 'models/web_0_300_20.bin'
 
   start_time = time.time()
 
@@ -319,8 +321,11 @@ def load_model(source=None, file=None):
   model.intersect_word2vec_format(MODEL_PATH, binary=True)  # C binary format
   model.train(LabeledRawSentence(source))
 
+  # model = KeyedVectors.load_word2vec_format(MODEL_PATH, binary=True)
 
-  # return Word2Vec.load_word2vec_format(MODEL_PATH, binary=True)
+  # print("model: %s words" % len(model.vocab))
+
+
   print("model loaded in %ss" % int(time.time() - start_time))
 
   return model
