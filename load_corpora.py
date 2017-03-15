@@ -79,7 +79,6 @@ def load_tfidfmodel(articles):
     top_features = [(f[0], article_count(f[0], articles)) for f in top_features]
     _features += sorted(top_features, key=lambda x: x[1], reverse=True)
 
-
   _filtred_features = []
   for f, i in _features:
     skip=False
