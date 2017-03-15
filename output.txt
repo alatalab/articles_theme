@@ -1,3 +1,122 @@
-3-gram top: [('mesenchymal stem cell', 342), ('embryonic stem cell', 186), ('stem cells msc', 105), ('pluripotent stem cells', 79), ('bone marrow cells', 75), ('hematopoietic stem cells', 73), ('human embryonic stem', 66), ('stem cells mscs', 63), ('scanning electron microscopy', 59), ('induced pluripotent stem', 58), ('cancer stem cells', 51), ('cells bone marrow', 48), ('neural stem cells', 47), ('stromal cells msc', 45), ('stem progenitor cells', 45), ('play important role', 44), ('human mesenchymal stem', 44), ('optical coherence tomography', 44), ('endothelial growth factor', 41), ('bone marrow mesenchymal', 40), ('vascular endothelial growth', 40), ('central nervous system', 36), ('stromal cells mmsc', 35), ('hemopoietic stem cells', 35), ('human bone marrow', 35), ('umbilical cord blood', 35), ('bone marrow stromal', 34), ('green fluorescent protein', 32), ('mouse embryonic stem', 32), ('growth factor vegf', 31), ('colony stimulating factor', 30), ('stem cells escs', 30), ('fibroblast growth factor', 29), ('bone marrow stem', 29), ('polymerase chain reaction', 29), ('reactive oxygen species', 29), ('bone tissue engineering', 28), ('graft versus host', 28), ('bone marrow derived', 26), ('stromal cells mscs', 26), ('stem cell therapy', 25), ('allogeneic hematopoietic stem', 25), ('coherence tomography oct', 25), ('human adipose tissue', 25), ('marrow stem cells', 25), ('selective laser sintering', 25), ('stromal precursor cells', 25), ('multipotent stromal cells', 24), ('versus host disease', 23), ('cell transplantation hsct', 23), ('transplantation mesenchymal stem', 23), ('stem cells human', 22), ('autologous hematopoietic stem', 22), ('marrow mesenchymal stem', 22), ('stromal stem cells', 22), ('cell transplantation allo', 21), ('derived mesenchymal stem', 21), ('autologous bone marrow', 21), ('blood mononuclear cells', 20), ('granulocyte colony stimulating', 20), ('human umbilical cord', 20), ('stem cell lines', 20), ('stem cells ipscs', 20), ('cells mesenchymal stem', 20), ('subcutaneous adipose tissue', 19), ('adult stem cells', 19), ('aim present work', 19), ('bone marrow peripheral', 19), ('bone marrow transplantation', 19), ('cell cycle arrest', 19), ('derived stem cells', 19), ('high dose chemotherapy', 19), ('marrow stromal cells', 19), ('stem cells derived', 19), ('stem cells transplantation', 19), ('transplantation bone marrow', 19), ('blood stem cells', 18), ('bone marrow multipotent', 18), ('bone tissue regeneration', 18), ('magnetic resonance imaging', 18), ('marrow peripheral blood', 18), ('tissue engineering applications', 18), ('acute myeloid leukemia', 17), ('median age years', 17), ('extracellular matrix proteins', 16), ('hemopoiesis inducing microenvironment', 16), ('mesenchymal progenitor cells', 16), ('multipotent mesenchymal stem', 16), ('stem cell differentiation', 16), ('transforming growth factor', 16), ('adipose tissue derived', 15), ('aim study investigate', 15), ('derived neurotrophic factor', 15), ('drug delivery systems', 15), ('marrow mesenchymal stromal', 15), ('smooth muscle cells', 15), ('stem cell markers', 15), ('transplantation allo hsct', 15), ('cd cd cd', 0), ('dose mg kg', 0)]
-4-gram top: [('mesenchymal stem cells msc', 95), ('multipotent mesenchymal stromal cells', 88), ('hematopoietic stem cell transplantation', 63), ('human embryonic stem cell', 62), ('mesenchymal stem cells mscs', 55), ('induced pluripotent stem cells', 47), ('human embryonic stem cells', 44), ('human mesenchymal stem cells', 40), ('vascular endothelial growth factor', 40), ('mesenchymal stromal cells msc', 37), ('embryonic stem cells escs', 30), ('mesenchymal stromal cells mmsc', 29), ('endothelial growth factor vegf', 29), ('allogeneic hematopoietic stem cell', 25), ('bone marrow stem cells', 25), ('optical coherence tomography oct', 25), ('transplantation mesenchymal stem cells', 23), ('mouse embryonic stem cells', 23), ('autologous hematopoietic stem cell', 22), ('bone marrow mesenchymal stem', 22), ('graft versus host disease', 22), ('mesenchymal stromal cells mscs', 22), ('stem cell transplantation hsct', 22), ('marrow mesenchymal stem cells', 21), ('granulocyte colony stimulating factor', 20), ('pluripotent stem cells ipscs', 20), ('bone marrow stromal cells', 19), ('derived mesenchymal stem cells', 19), ('stem cell transplantation allo', 19), ('bone marrow peripheral blood', 18), ('cells mesenchymal stem cells', 16), ('bone marrow mesenchymal stromal', 15), ('human umbilical cord blood', 15)]
-5-gram top: [('multipotent mesenchymal stromal cells mmsc', 28), ('vascular endothelial growth factor vegf', 28), ('allogeneic hematopoietic stem cell transplantation', 21), ('bone marrow mesenchymal stem cells', 21), ('induced pluripotent stem cells ipscs', 20), ('hematopoietic stem cell transplantation hsct', 19), ('autologous hematopoietic stem cell transplantation', 17)]
+mesenchymal stem cell                              : 342 
+embryonic stem cell                                : 186 
+embryonic stem cells                               : 158 
+mesenchymal stromal cells                          : 156 
+hematopoietic stem cell                            : 143 
+stem cell transplantation                          : 113 
+stem cells msc                                     : 105 
+multipotent mesenchymal stromal                    : 97  
+mesenchymal stem cells msc                         : 95  
+multipotent mesenchymal stromal cells              : 88  
+pluripotent stem cells                             : 79  
+bone marrow cells                                  : 75  
+hematopoietic stem cells                           : 73  
+human embryonic stem                               : 66  
+stem cells mscs                                    : 63  
+hematopoietic stem cell transplantation            : 63  
+human embryonic stem cell                          : 62  
+scanning electron microscopy                       : 59  
+induced pluripotent stem                           : 58  
+mesenchymal stem cells mscs                        : 55  
+cancer stem cells                                  : 51  
+cells bone marrow                                  : 48  
+neural stem cells                                  : 47  
+induced pluripotent stem cells                     : 47  
+stromal cells msc                                  : 45  
+stem progenitor cells                              : 45  
+play important role                                : 44  
+human mesenchymal stem                             : 44  
+optical coherence tomography                       : 44  
+human embryonic stem cells                         : 44  
+endothelial growth factor                          : 41  
+bone marrow mesenchymal                            : 40  
+vascular endothelial growth                        : 40  
+human mesenchymal stem cells                       : 40  
+vascular endothelial growth factor                 : 40  
+central nervous system                             : 36  
+stromal cells mmsc                                 : 35  
+hemopoietic stem cells                             : 35  
+human bone marrow                                  : 35  
+umbilical cord blood                               : 35  
+bone marrow stromal                                : 34  
+green fluorescent protein                          : 32  
+mouse embryonic stem                               : 32  
+growth factor vegf                                 : 31  
+colony stimulating factor                          : 30  
+stem cells escs                                    : 30  
+embryonic stem cells escs                          : 30  
+fibroblast growth factor                           : 29  
+bone marrow stem                                   : 29  
+polymerase chain reaction                          : 29  
+reactive oxygen species                            : 29  
+mesenchymal stromal cells mmsc                     : 29  
+endothelial growth factor vegf                     : 29  
+bone tissue engineering                            : 28  
+graft versus host                                  : 28  
+multipotent mesenchymal stromal cells mmsc         : 28  
+vascular endothelial growth factor vegf            : 28  
+bone marrow derived                                : 26  
+stromal cells mscs                                 : 26  
+stem cell therapy                                  : 25  
+allogeneic hematopoietic stem                      : 25  
+coherence tomography oct                           : 25  
+human adipose tissue                               : 25  
+marrow stem cells                                  : 25  
+selective laser sintering                          : 25  
+stromal precursor cells                            : 25  
+allogeneic hematopoietic stem cell                 : 25  
+bone marrow stem cells                             : 25  
+optical coherence tomography oct                   : 25  
+multipotent stromal cells                          : 24  
+versus host disease                                : 23  
+cell transplantation hsct                          : 23  
+transplantation mesenchymal stem                   : 23  
+transplantation mesenchymal stem cells             : 23  
+mouse embryonic stem cells                         : 23  
+stem cells human                                   : 22  
+autologous hematopoietic stem                      : 22  
+marrow mesenchymal stem                            : 22  
+stromal stem cells                                 : 22  
+bone marrow mesenchymal stem                       : 22  
+graft versus host disease                          : 22  
+mesenchymal stromal cells mscs                     : 22  
+stem cell transplantation hsct                     : 22  
+cell transplantation allo                          : 21  
+derived mesenchymal stem                           : 21  
+autologous bone marrow                             : 21  
+marrow mesenchymal stem cells                      : 21  
+allogeneic hematopoietic stem cell transplantation : 21  
+bone marrow mesenchymal stem cells                 : 21  
+blood mononuclear cells                            : 20  
+granulocyte colony stimulating                     : 20  
+human umbilical cord                               : 20  
+stem cell lines                                    : 20  
+stem cells ipscs                                   : 20  
+cells mesenchymal stem                             : 20  
+granulocyte colony stimulating factor              : 20  
+pluripotent stem cells ipscs                       : 20  
+induced pluripotent stem cells ipscs               : 20  
+subcutaneous adipose tissue                        : 19  
+adult stem cells                                   : 19  
+aim present work                                   : 19  
+bone marrow peripheral                             : 19  
+bone marrow transplantation                        : 19  
+cell cycle arrest                                  : 19  
+derived stem cells                                 : 19  
+high dose chemotherapy                             : 19  
+marrow stromal cells                               : 19  
+stem cells derived                                 : 19  
+stem cells transplantation                         : 19  
+transplantation bone marrow                        : 19  
+bone marrow stromal cells                          : 19  
+derived mesenchymal stem cells                     : 19  
+stem cell transplantation allo                     : 19  
+hematopoietic stem cell transplantation hsct       : 19  
+blood stem cells                                   : 18  
+bone marrow multipotent                            : 18  
+bone tissue regeneration                           : 18  
+magnetic resonance imaging                         : 18  
+marrow peripheral blood                            : 18  
+tissue engineering applications                    : 18  
+bone marrow peripheral blood                       : 18  
+median age years                                   : 17  

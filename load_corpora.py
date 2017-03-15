@@ -59,7 +59,9 @@ def load_tfidfmodel(articles):
   from sklearn.feature_extraction.text import TfidfVectorizer
   from collections import defaultdict
 
-  vectorizer = TfidfVectorizer(ngram_range=(3,5), max_df=0.05, min_df=15)
+  mindf = int(len(articles)*0.005)
+
+  vectorizer = TfidfVectorizer(ngram_range=(3,5), max_df=0.05, min_df=mindf)
 
   X = vectorizer.fit_transform(articles)
 
@@ -71,11 +73,18 @@ def load_tfidfmodel(articles):
   # print(features_by_gram)
 
   top_n = 100
+  _features = []
   for gram, features in features_by_gram.items():
     top_features = sorted(features, key=lambda x: x[1], reverse=True)[:top_n]
     top_features = [(f[0], article_count(f[0], articles)) for f in top_features]
-    top_features = sorted(top_features, key=lambda x: x[1], reverse=True)
-    print('{}-gram top:'.format(gram), top_features)
+    _features += sorted(top_features, key=lambda x: x[1], reverse=True)
+
+  # print(_features)
+
+  for f in sorted(_features, key=lambda x: x[1], reverse=True):
+    print("{:<50} : {:<4}".format(f[0], f[1]))
+
+
 
 
 def main(stopwords):
