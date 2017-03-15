@@ -50,31 +50,60 @@ stopwords = nltk.corpus.stopwords.words('english')
 stopwords+=["", "©", "A", "1", "2", "3", "4", "5", "6", '10', "of", "It", "In", "This", "a", "The", "the", "was", "We", "about", "above", "according", "across", "actually", "ad", "adj", "ae", "af", "after", "afterwards", "ag", "again", "against", "ai", "al", "all", "almost", "alone", "along", "already", "also", "although", "always", "am", "among", "amongst", "an", "and", "another", "any", "anyhow", "anyone", "anything", "anywhere", "ao", "aq", "ar", "are", "aren", "aren't", "around", "arpa", "as", "at", "au", "aw", "az", "ba", "bb", "bd", "be", "became", "because", "become", "becomes", "becoming", "been", "before", "beforehand", "begin", "beginning", "behind", "being", "below", "beside", "besides", "between", "beyond", "bf", "bg", "bh", "bi", "billion", "bj", "bm", "bn", "bo", "both", "br", "bs", "bt", "but", "buy", "bv", "bw", "by", "bz", "ca", "can", "can't", "cannot", "caption", "cc", "cd", "cf", "cg", "ch", "ci", "ck", "cl", "click", "cm", "cn", "co", "co.", "com", "copy", "could", "couldn", "couldn't", "cr", "cs", "cu", "cv", "cx", "cy", "cz,de", "did", "didn", "didn't", "dj", "dk", "dm", "do", "does", "doesn", "doesn't", "don", "don't", "down", "during", "dz,each", "ec", "edu", "ee", "eg", "eh", "eight", "eighty", "either", "else", "elsewhere", "end", "ending", "enough", "er", "es", "et", "etc", "even", "ever", "every", "everyone", "everything", "everywhere", "except,few", "fi", "fifty", "find", "first", "five", "fj", "fk", "fm", "fo", "for", "former", "formerly", "forty", "found", "four", "fr", "free", "from", "further", "fx,ga", "gb", "gd", "ge", "get", "gf", "gg", "gh", "gi", "gl", "gm", "gmt", "gn", "go", "gov", "gp", "gq", "gr", "gs", "gt", "gu", "gw", "gy ,had", "has", "hasn", "hasn't", "have", "haven", "haven't", "he", "he'd", "he'll", "he's", "help", "hence", "her", "here", "here's", "hereafter", "hereby", "herein", "hereupon", "hers", "herself", "him", "himself", "his", "hk", "hm", "hn", "home", "homepage", "how", "however", "hr", "ht", "htm", "html", "http", "hu", "hundred", "i'd", "i'll", "i'm", "i've", "i.e.", "id", "ie", "if", "ii", "il", "im", "in", "inc", "inc.", "indeed", "information", "instead", "int", "into", "io", "iq", "ir", "is", "isn", "isn't", "it", "it's", "its", "itself", " ,je", "jm", "jo", "join", "jp,ke", "kg", "kh", "ki", "km", "kn", "koo", "kp", "kr", "kw", "ky", "kz,la", "last", "later", "latter", "lb", "lc", "least", "less", "let", "let's", "li", "like", "likely", "lk", "ll", "lr", "ls", "lt", "ltd", "lu", "lv", "ly,ma", "made", "make", "makes", "many", "maybe", "mc", "md", "me", "meantime", "meanwhile", "mg", "mh", "microsoft", "might", "mil", "million", "miss", "mk", "ml", "mm", "mn", "mo", "more", "moreover", "most", "mostly", "mp", "mq", "mr", "mrs", "ms", "msie", "mt", "mu", "much", "must", "mv", "mw", "mx", "my", "myself", "mz,na", "namely", "nc", "ne", "neither", "net", "netscape", "never", "nevertheless", "new", "next", "nf", "ng", "ni", "nine", "ninety", "nl", "no", "nobody", "none", "nonetheless", "noone", "nor", "not", "nothing", "now", "nowhere", "np", "nr", "nu", "null", "nz,of", "off", "often", "om", "on", "once", "one", "one's", "only", "onto", "or", "org", "other", "others", "otherwise", "our", "ours", "ourselves", "out", "over", "overall", "own,pa", "page", "pe", "per", "perhaps", "pf", "pg", "ph", "pk", "pl", "pm", "pn", "pr", "pt", "pw", "py", " ,qa,rather", "re", "recent", "recently", "reserved", "ring", "ro", "ru", "rw,sa", "same", "sb", "sc", "sd", "se", "seem", "seemed", "seeming", "seems", "seven", "seventy", "several", "sg", "sh", "she", "she'd", "she'll", "she's", "should", "shouldn", "shouldn't", "si", "since", "site", "six", "sixty", "sj", "sk", "sl", "sm", "sn", "so", "some", "somehow", "someone", "something", "sometime", "sometimes", "somewhere", "sr", "st", "still", "stop", "su", "such", "sv", "sy", "sz,taking", "tc", "td", "ten", "text", "tf", "tg", "test", "th", "than", "that", "that'll", "that's", "the", "their", "them", "themselves", "then", "thence", "there", "there'll", "there's", "thereafter", "thereby", "therefore", "therein", "thereupon", "these", "they", "they'd", "they'll", "they're", "they've", "thirty", "this", "those", "though", "thousand", "three", "through", "throughout", "thru", "thus", "tj", "tk", "tm", "tn", "to", " together", "too", "toward", "towards", "tp", "tr", "trillion", "tt", "tv", "tw", "twenty", "two", "tz,ua", "ug", "uk", "um", "under", "unless", "unlike", "unlikely", "until", "up", "upon", "us", "use", "used", "using", "uy", "uz,va", "vc", "ve", "very", "vg", "vi", "via", "vn", "vu,was", "wasn", "wasn't", "we", "we'd", "we'll", "we're", "we've", "web", "webpage", "website", "welcome", "well", "were", "weren", "weren't", "wf", "what", "what'll", "what's", "whatever", "when", "whence", "whenever", "where", "whereafter", "whereas", "whereby", "wherein", "whereupon", "wherever", "whether", "which", "while", "whither", "who", "who'd", "who'll", "who's", "whoever", " whole", "whom", "whomever", "whose", "why", "will", "with", "within", "without", "won", "won't", "would", "wouldn", "wouldn't", "ws", "www,ye", "yes", "yet", "you", "you'd", "you'll", "you're", "you've", "your", "yours", "yourself", "yourselves", "yt", "yu,za", "zm", "zr"]
 
 
+def article_count(pattern, articles):
+  return len([1 for a in articles if pattern in a.lower()])
+
+
+def load_tfidfmodel(articles):
+
+  from sklearn.feature_extraction.text import TfidfVectorizer
+  from collections import defaultdict
+
+  vectorizer = TfidfVectorizer(ngram_range=(3,5), max_df=0.05, min_df=15)
+
+  X = vectorizer.fit_transform(articles)
+
+  features_by_gram = defaultdict(list)
+
+  for f, w in zip(vectorizer.get_feature_names(), vectorizer.idf_):
+    features_by_gram[len(f.split(' '))].append((f, w))
+
+  # print(features_by_gram)
+
+  top_n = 100
+  for gram, features in features_by_gram.items():
+    top_features = sorted(features, key=lambda x: x[1], reverse=True)[:top_n]
+    top_features = [(f[0], article_count(f[0], articles)) for f in top_features]
+    top_features = sorted(top_features, key=lambda x: x[1], reverse=True)
+    print('{}-gram top:'.format(gram), top_features)
+
+
 def main(stopwords):
 
   # print("check for input...")
   stopwords += generateStopBigrams()
   stopwords += nltk.corpus.stopwords.words('english')
 
-  data = parseData("data/world_history_key.csv")
+  # data = parseData("data/world_history_key.csv")
+  data = parseData("data/articles.csv")
 
   # model = None
+
+  b = [" ".join(getWords(a)) for a in data['Abstract']]
+
+  load_tfidfmodel(b)
+
+  return
 
   model = load_model(source=data)
 
   model.save('world_history_2vec.bin')
 
-  # print(model['снег_NOUN'])
-
   # tesaurus = parseTesaurus()
 
   # print(len(stopwords))
 
-
-  # print(len(stopwords))
-
-
-  freq_terms = None
+  # freq_terms = None
 
   # for index, article in data[:5].iterrows():
 
@@ -196,7 +225,8 @@ def collectFrequency(words):
 
 
 def getWords(s):
-  words = re.compile("[:\\\"\s\.\,\(\)\%';\[\]]").split(s)
+  exclusion = re.findall("([A-Za-z]+\d+)\s+",s)
+  words = re.compile("[\-\d:\\\"\s\.\,\(\)\%';\[\]]").split(s.lower())
   # print(len(words))
   return list(filter(lambda a: a not in stopwords, words))
 
@@ -241,7 +271,6 @@ def getNouns(s):
   return list(filter(lambda a: getPartOfSpeech(a[0]) == 'noun', s))
 
 
-
 def parseTesaurus(file="desc2017.xml"):
 
   start_time = time.time()
@@ -256,12 +285,21 @@ def parseTesaurus(file="desc2017.xml"):
   return e
 
 
+def split_article(article):
+  words=["Copyright ","©"]
+  result=article
+  for word in words:
+    result=result.split(word)[0]
+  return result
 
 def parseData(file):
 
   articles = pd.read_csv(file)
 
   articles = articles[articles['Abstract'] != '[No abstract available]']
+
+
+  articles['Abstract'] = articles['Abstract'].apply(split_article)
 
   # print(articles)
 
@@ -316,7 +354,7 @@ def load_model(source=None, file=None):
   model = Doc2Vec(dm=0, #DV
         size=300,
         window=8,
-        min_count=1, 
+        min_count=3,
         iter=20,
         workers=4)
   model.build_vocab(LabeledRawSentence(source))
@@ -333,6 +371,8 @@ def load_model(source=None, file=None):
   return model
 
 
-main(stopwords)
+
+if __name__ == "__main__":
+  main(stopwords)
 
 
