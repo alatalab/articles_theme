@@ -1,5 +1,6 @@
 
 import time, re
+import math
 
 import nltk
 import gensim
@@ -54,14 +55,14 @@ def article_count(pattern, articles):
   return len([1 for a in articles if pattern in a.lower()])
 
 
-def load_tfidfmodel(articles):
+def load_tfidfmodel(articles, data):
 
   from sklearn.feature_extraction.text import TfidfVectorizer
   from collections import defaultdict
 
   mindf = int(len(articles)*0.005)
 
-  vectorizer = TfidfVectorizer(ngram_range=(3,5), max_df=0.02, min_df=mindf)
+  vectorizer = TfidfVectorizer(ngram_range=(3,5), max_df=0.1, min_df=mindf)
 
   X = vectorizer.fit_transform(articles)
 
@@ -90,10 +91,86 @@ def load_tfidfmodel(articles):
     if not skip:
       _filtred_features.append((f, i))
 
+  sorted_features = sorted(_filtred_features, key=lambda x: x[1], reverse=True)
+
   for f in sorted(_filtred_features, key=lambda x: x[1], reverse=True):
     print("{:<50} : {:<4}".format(f[0], f[1]))
 
 
+  prepare_report(sorted_features[0][0], data)
+  prepare_report(sorted_features[1][0], data)
+  prepare_report(sorted_features[2][0], data)
+
+
+
+from matplotlib.colors import LinearSegmentedColormap
+
+def getColorMap():
+
+  colors_list = [
+    (0.0, (221/255, 90/255, 78/255)),
+    (.33, (251/255, 163/255, 83/255)),
+    (.66, (232/255, 211/255, 83/255)),
+    (1.0, (165/255, 207/255, 101/255))]
+
+  return LinearSegmentedColormap.from_list('test_1', colors_list)
+
+
+def prepare_report(feature, articles_data):
+
+  quartiles = get_quartiles_dict()
+
+  relevant_articles = articles_data[articles_data['Abstract'].str.contains(feature)]
+
+  __index = list(relevant_articles['Year'].unique())
+  _index = []
+  for i in __index:
+    if (math.isnan(i)): continue
+    _index.append(int(i))
+
+  report = pd.DataFrame(columns=['Q4', 'Q3', 'Q2', 'Q1'], index=sorted(_index))
+
+  report = report.fillna(0)
+
+  for i, a in relevant_articles.iterrows():
+
+    if (a['ISSN'] not in quartiles): continue
+
+    q = quartiles[a['ISSN']]
+
+    if (q == '-'): continue
+    if (math.isnan(a['Year'])): continue
+
+    y = int(a['Year'])
+
+    report[q][y] = report[q][y] + 1
+    # report['sum'][y] = report['sum'][y] + 1
+
+  if (feature == ''):
+    title = ''
+  else:
+    title = "Articles on " + feature
+
+  plot = report.plot(kind='bar', stacked=True, title=title, legend=True, colormap=getColorMap())
+  fig = plot.get_figure()
+
+  if (feature == ''):
+    filename = 'all_articles'
+  else:
+    filename = feature
+
+  fig.savefig('output/' + filename + '.png')
+
+
+
+def get_quartiles_dict():
+
+  import csv
+  result = {}
+  for key, val in csv.reader(open("data/q_dict.csv")):
+    result[key] = val
+
+  return result
 
 
 def main(stopwords):
@@ -109,7 +186,10 @@ def main(stopwords):
 
   b = [" ".join(getWords(a)) for a in data['Abstract']]
 
-  load_tfidfmodel(b)
+  load_tfidfmodel(b, data)
+
+  prepare_report('', data)
+
 
   return
 
