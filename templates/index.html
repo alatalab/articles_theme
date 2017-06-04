@@ -1,0 +1,18 @@
+<html>
+
+<body>
+
+get keywords on articles list:
+<br>
+
+<form action="/go" method="post">
+	<label for="ngram">N-gram range:</label><input name="ngram" type="text" placeholder="2, 5" value="{{ngram}}" />
+	<br>
+	<button >run</button>
+</form>
+
+{% if res %}
+	<pre>{{res}}</pre>
+{% endif %}
+</body>
+</html>
